@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lzy.mtnj.mapper.system.MenuMapper">
+    <select id="getUserMenu" resultType="com.lzy.mtnj.model.system.Menu">
+        <choose>
+            <when test="superAdmin!=1">
+                select C.id,C. menuCode,C.menuName,C.parentid,C.url,C.icon from mtnj_user_role A inner join mtnj_Role_menu B on A.RoleId=B.RoleId inner join mtnj_menu C on B.MenuId=C.id
+                where A.userId=#{userId} and C.parentId=#{parentId} and status=1 order by sortCode asc
+            </when>
+            <otherwise>
+                select C.id,C. menuCode,C.menuName,C.parentid,C.url,C.icon from mtnj_menu C where  C.parentId=#{parentId} order by C.sortCode asc
+            </otherwise>
+        </choose>
+  </select>
+</mapper>

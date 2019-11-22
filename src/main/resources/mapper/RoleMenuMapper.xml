@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lzy.mtnj.mapper.system.RoleMenuMapper">
+    <select id="findRoleMenuByRoleId" resultType="com.lzy.mtnj.model.RoleMenu">
+       SELECT
+A.id,A.menuId,A.roleId,A.addDate,A.addUser
+ FROM demo.mtnj_role_menu A where A.roleid=#{roleId} and not exists(select * from mtnj_menu B where B.parentId=A.MenuId );
+  </select>
+</mapper>

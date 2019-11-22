@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:mysql://140.143.234.59:3406/ytzl_oa?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&serverTimezone=Hongkong
+    username: dev
+    password: lzyDDX123$%^789
+swagger:
+  enable: false
+file:
+  rootPath: /home/mtnj/temp/
